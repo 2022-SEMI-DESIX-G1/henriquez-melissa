@@ -1,0 +1,323 @@
+
+body {
+    background-color: #031926;
+}
+
+#pokemon-finder-section {
+    position: relative;
+    margin-top: 100px;
+}
+
+.logo-pokeapi {
+    position: absolute;
+    width: 257px;
+    height: 103px;
+
+    top: -69px;
+    left: calc(50% - (257px / 2));
+    z-index: 1;
+}
+
+#pokemon-finder-form {
+    position: relative;
+    width: 445px;
+    height: 210px;
+    margin: 0 auto;
+    background: #F7F9F7;
+    border-radius: 5px;
+    /* top: 100px; */
+    padding-left: 47px;
+    padding-right: 44px;
+}
+
+#pokemon-finder-form h1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    position: relative;
+    width: fit-content;
+    top: 35px;
+}
+
+#pokemon-finder-form p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+    position: relative;
+    width: fit-content;
+    top: 26px;
+}
+
+label{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.label-buscar{
+    position: relative;
+    
+    width: fit-content;
+    /* top: 19px; */
+}
+
+.label-tipo{
+    position: relative;
+    width: fit-content;
+    /* top: 19px; */
+    left: 179px;
+    /* right: 47px; */
+}
+
+#pokemon-finder-query {
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    width: 209px;
+    height: 23px;
+    background: #E8E8E8;
+    border-radius: 5px;
+    border: none;
+    padding-left: 9px;
+    padding-right: 0;
+    position: relative;
+    top: 4px;
+    /* left: -164px; */
+}
+
+
+
+#pokemon-finder-search-type {
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    width: 218px;
+    height: 25px;
+    background: #E8E8E8;
+    border-radius: 5px;
+    border: none;
+    padding-left: 9px;
+    padding-right: 0;
+    position: relative;
+    top: 4px;
+    left: 5px;
+}
+
+button{
+    width: 108px;
+    height: 27px;
+    border: none;
+    background: #19A5F8;
+    border-radius: 5px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FFFFFF;
+    top: 25px;
+}
+
+
+.boton-limpiar{
+    position: relative;
+    /* display: none; */
+}
+
+
+.boton-buscar{
+    position: absolute;
+    left: 381px;
+    top: 169px;
+    /* right: -150px; */
+
+
+}
+#pokemon-finder-response{
+    width: auto;
+    margin: 0;
+    height: fit-content;
+}
+
+.card {
+    position: relative;
+    margin: 25px auto 0 auto;
+    width: 492px;
+    padding: 0;
+    padding-left: 44px;
+    background: #F7F9F7;
+    border-radius: 5px;
+    height: 230px;
+}
+
+.card-ability {
+    position: relative;
+    margin: 25px auto 0 auto;
+    width: 492px;
+    padding: 0;
+    padding-left: 44px;
+    background: #F7F9F7;
+    border-radius: 5px;
+    min-height: 230px;
+    padding-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+    width: fit-content;
+    position: relative;
+    top: 31px;
+}
+
+.card h3{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+
+}
+
+.titulo-weight-height{
+    left: 248px;
+    margin-top: 1px;
+}
+
+.card img{
+    position: relative;
+    width: 45px;
+    top: -12px;
+}
+
+.img-front {
+    left: -8px;
+}
+
+.img-back {
+    left: -30px;
+}
+
+.card p{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+    position: relative;
+    width: fit-content;
+    top: -66px;
+    left: 296px;
+}
+
+.card .titulo-evolution{
+    position: relative;
+    top: -75px;
+}
+
+.card .titulo-abilities{
+    position: relative;
+    top: -75px;
+    left: 194px;
+}
+.card ul {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+}
+.card .lista-evolution{
+    position: relative;
+    margin-bottom: 0;
+    width: fit-content;
+    top: -95px;
+    left: -12px;
+}
+
+.card .lista-abilities{
+    position: relative;
+    margin-bottom: 0;
+    width: fit-content;
+    top: -152px;
+    left: 272px;
+}
+
+.card .lista-evolution img{
+    position: relative;
+    left: 5px;
+    top: 1px;
+    width: 15px;
+}
+
+.card .lista-abilities img{
+    position: relative;
+    left: 5px;
+    top: 1px;
+    width: 12px;
+}
+
+.titulo-ability{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    position: relative;
+    /* top: -75px; */
+    /* left: 194px; */
+}
+
+.card-ability img{
+    position: relative;
+    left: 5px;
+    top: 1px;
+    width: 12px;
+}
+
+.card-ability .pokemones{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+    position: relative;
+    width: fit-content;
+    top: -10px;
+    left: -20px;
+    width: fit-content;
+}
+
+.invisible{
+    display: none;
+}
+
+.github {
+    position: absolute;
+    right: 27px;
+    top: 19px;
+}
+
