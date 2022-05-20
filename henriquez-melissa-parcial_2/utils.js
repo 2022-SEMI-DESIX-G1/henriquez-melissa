@@ -6,7 +6,7 @@
         getFormattedBackendUrl: ({ query, searchType }) => {
             return `${Utils.settings.backendBaseUrl}/${searchType}/${query}`;
         },
-        //valida si tiene url, si es asi llamara el url que viene en el queri si no hara una busqueda con searchtype
+        
         getPokemon: ({ url, query, searchType = "pokemon" }) => {
             return Utils.fetch({
                 url: url ? query : Utils.getFormattedBackendUrl({ query, searchType }),

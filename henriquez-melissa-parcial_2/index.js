@@ -38,13 +38,13 @@
                     App.htmlElements.pokemonFinderOutput.innerHTML = `<h1>${error}</h1>`;
                 }
             },
-            // Limpia la pandalla y esconde el boton de limpiar
+           
             cleanerCardsOnClick: (e) => {
                 e.preventDefault();
                 App.htmlElements.pokemonFinderOutput.innerHTML = "";
                 App.htmlElements.pokemonFinderCleanerButton.hidden = true;
             },
-            // Muestra el boton de limpiar
+
             ViewCleanerButtonOnClick: () => {
                 App.htmlElements.pokemonFinderCleanerButton.hidden = false;
             }
@@ -59,7 +59,7 @@
                     ? renderMap[searchType](response)
                     : App.templates.errorCard();
             },
-            // se convirtio en una funcion asincrona para que no se cargue la pantalla hasta que se cargue la respuestas
+            
             errorCard: () => `<h1>There was an error</h1>`,
             pokemonCard: async ({ id, name, weight, height, sprites, abilities, species}) => {
                 evolutionChainArray = [];
@@ -75,7 +75,7 @@
                         query: speciesPokemon.evolution_chain.url,
                     });
                     evolutionChainArray.push([evolutionChain.chain.species.name, evolutionChain.chain.is_baby]);
-                    // codigo para obtener cadena de evoluciones pokemon
+                    // cadena de evoluciones pokemon
                     for(let i = 0; i < evolutionChain.chain.evolves_to.length; i++){
                         evolutionChainArray.push([evolutionChain.chain.evolves_to[i].species.name, evolutionChain.chain.evolves_to[i].is_baby]);
                         for(let j = 0; j < evolutionChain.chain.evolves_to[i].evolves_to.length; j++){
@@ -83,19 +83,19 @@
                         }
                     }
                     evolutionChainEnd = [];
-                    // acomoda la cadena de evoluciones en un array con li y le pone la imagen de bebe
+        
                     evolutionChainArray.forEach(element => {
                         evolutionChainEnd.push(`<li>${element[0]} ${element[1] ? "<img src='imagenes/bebe.png'>" : ""}</li>`);
                     });
                     console.log(evolutionChainArray);
 
-                    // mapea las habilidades y pone la imagen de la ojo
+               
                     const abilitiesList = abilities.map(
                         ({ ability, is_hidden }) =>
                             `<li>${ability.name}${is_hidden ? "<img src='imagenes/ojo.png'>" : ""
                             }</li>`
                     );
-                    // retorna el html de la card para pokemones
+            
                     return `<div class="card">
                     <h1>${name} (${id})</h1><br>
                     <h3 class="titulo-sprites">Sprites</h3>
