@@ -1,4 +1,4 @@
-//problema 1
+//problema 1 ----------------------------------------------------------------------------
 const principal = (() => {
 
     function palindromo(val) {
@@ -19,7 +19,7 @@ const principal = (() => {
 
 })()
 
-//problema 2
+//problema 2 ----------------------------------------------------------------------------
 class Problema2 {
 
     constructor() {
@@ -39,7 +39,7 @@ class Problema2 {
 }
 var problem2 = new Problema2();
 
-//problema3
+//problema3 ----------------------------------------------------------------------------
 function abisiesto(ano) {
     var y = parseInt(ano);
     if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0)
@@ -53,7 +53,7 @@ function abisiesto(ano) {
 }
 console.log(abisiesto(2016));
 
-//problema4
+//problema4 ----------------------------------------------------------------------------
 
 function sprimo(numero) {
     var i, j, a = 0, b = 0;
