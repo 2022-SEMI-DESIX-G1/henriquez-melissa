@@ -14,7 +14,7 @@ const principal = (() => {
 
     function oso(n) {
         return (n).toString(2);
-    }
+    } 
     console.log(palindromo('3'));
 
 })()
