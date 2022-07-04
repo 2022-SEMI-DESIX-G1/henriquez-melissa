@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio #5</title>
+</head>
+
+<body>
+    <section id="principal">
+        <div id="titulo">
+            <h1>Secuencia de Fibonacci</h1>
+        </div>
+        <form id="formulario">
+            <label for="num">Ingrese un numero para calcular su serie fibonacci:</label>
+            <input id="num" type="text">
+            <button id="boton-calcular" type="submit">Calcular</button>
+        </form>
+
+    </section>
+    
+    <section id="respuestas">
+        <div id="confirmacion"></div>
+        <div id="respuesta"></div>
+    </section>
+
+    <style>
+        h1 {
+            color: #f1f1f1;
+        }
+        
+        #principal {
+            background: rgb(106, 106, 209);
+            background-color: rgba(126, 0, 0, 0.966);
+            text-align: center;
+            color: #f1f1f1;
+            padding: 1rem;
+        }
+        
+        #respuesta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        #confirmacion div {
+            n
+        
+        #boton-calcular {
+            color: white;
+            border-radius: 7px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            background: rgb(202, 60, 60);
+        }
+        
+        .carta {
+            display: flex;
+            justify-content: center;
+            border: 1px solid grey;
+            background-color: white;
+            padding: 0.8rem;
+            margin: 0.5rem;
+            min-width: 50px;
+            min-height: auto;
+            cursor: pointer;
+            margin-top: 1rem;
+            border-radius: 3px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+        
+        .carta:hover {
+            box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);
+            color: darkred;
+        }
+    </style>
+</body>
+
+<script src="utils.js"></script>
+<script src="index.js"></script>
+
+</html>
