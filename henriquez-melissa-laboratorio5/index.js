@@ -47,7 +47,7 @@
 
 
                 if (e.target.id === 'eliminar_si') {
-                    //                     e.target.remove();
+                    //e.target.remove();
 
                     let index = 'carta_' + e.target.dataset.index;
 
