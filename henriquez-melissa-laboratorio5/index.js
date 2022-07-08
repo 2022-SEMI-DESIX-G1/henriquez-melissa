@@ -1,8 +1,8 @@
 ((Utils) => {
     const App = {
         htmlElements: {
-            form: document.querySelector('#formulario-fibo'),
-            input: document.querySelector('#cantidad'),
+            form: document.querySelector('#formulario'),
+            input: document.querySelector('#num'),
             confirmacion: document.querySelector('#confirmacion'),
             respuesta: document.querySelector('#respuesta')
         },
