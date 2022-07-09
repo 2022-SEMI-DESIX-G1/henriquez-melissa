@@ -1,60 +1,42 @@
 const axios = require("axios");
 
-const main = async () => {
-  const { data } = await axios("https://pokeapi.co/api/v2/pokemon/ditto");
-  idPokemon(data);
-  return data;
-};
+const main = async() => {
+    const {data} = await axios("https://pokeapi.co/api/v2/pokemon/eevee");
+    const speciesUrl = await axios(data.species.url);
+    const evolutionChain = await axios(speciesUrl.data.evolution_chain.url);
+    console.log(getPokemon(data,evolutionChain));
+}
 
-const idPokemon = async ({id, name, weight, height, sprites, abilities, species}) => {
-  console.log('El name del pokemon es: '+name);
-  console.log('El id del pokemon es: '+id);
-  console.log(`La altura de ${name} es ${height} y el peso es ${weight}`);
-  pokemonAbilitiesList({abilities, name});
-  await pokemonEvolutions({species, name});
-};
-
-const pokemonAbilitiesList = ({abilities, name}) => {
-  const pokemonAbilitiesList = abilities.map
-    ({ ability }) =>{ return ability.name }
-  );
-  console.log(`Las habilidades de ${name} son: ${pokemonAbilitiesList.join(", ")}`);
-  };
-
-  const pokemonEvolutions = async ({ species, name }) => {
-
-
-    const evoluciones = await getEvoluciones(species);
-    const pokemonEvolvesList = evoluciones.map(
-      ({ name }) =>{ return name }
-    );
-    console.log(`Evoluciones de ${name} son: ${pokemonEvolvesList.join(", ")}`);
-  };
-
-  const getEvoluciones = async ({ url }) => {
-    const { data } = await axios(url);
-    const chain = await getUrlSpecie(data);
-    
-    const listEvoluciones = getListEvoluciones(chain, []);
-    
-    return listEvoluciones;
-  }; 
-
-  const getUrlSpecie = async ({evolution_chain}) => {
-    const {data} = await axios(evolution_chain.url);
-    return data.chain;
-  };
-
-  const getListEvoluciones = ({species, evolves_to}, arrEvolutions) => {
-    arrEvolutions.push({
-      name: species.name
+getPokemon = ({id, name, weight, height, abilities}, evo_chains) => {
+    let abilitiesList = []
+    abilities.map(({ ability}) => {
+        abilitiesList.push({ name: ability.name})
     });
-    const detailEvolution = evolves_to.map(
-      ({ species, evolves_to }) => {
-          getListEvoluciones({ species, evolves_to }, arrEvolutions);
+
+    let evo_chain = getArrayEvoChain(evo_chains.data.chain)
+    let evoList = []
+    evo_chain.map(({ name}) =>{
+        evoList.push({ name});
+    });
+
+    return data = { id, name, weight, height, abilitiesList, evoList}
+};
+
+function getArrayEvoChain ({species, evolves_to}) {
+    let evoStacking = [];
+    evoStacking.push({name: species.name});
+
+    while (evolves_to.length > 0){
+        if (evolves_to.length > 1){
+            evolves_to.forEach(({species}) =>{
+                evoStacking.push({name: species.name});
+            });
+        }else{
+            evoStacking.push({name: evolves_to[0].species.name});
         }
-     );
-    return arrEvolutions;
-  };
+        evolves_to = evolves_to[0].evolves_to;
+    }
+    return evoStacking;
+}
 
 main();
