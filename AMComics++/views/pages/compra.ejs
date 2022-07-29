@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head.ejs') %>
+</head>
+
+<body class="single">
+
+    <header id="header">
+        <%- include('../partials/menu.ejs') %>
+    </header>
+
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div>
+
+            <!-- Formulario de compra -->
+            <article class="post">
+
+                <section id="intro">
+                    <a href="#" class="logo"><img src="images/AMComics++.png" alt="" /></a>
+                </section>
+                <header>
+                    <div class="title">
+                        <h2>Formulario de compra</h2>
+
+                        <p>Brindenos la información detallada que se solicita.</p>
+                    </div>
+                </header>
+
+                <section>
+                    <form method="post" action="" id="buy">
+                        <div class="row gtr-uniform">
+                            <div class="col-6 col-12-xsmall">
+                                <label for="name" class="col-label">Nombre Completo</label>
+                                <input type="text" name="name" id="name" value="" placeholder="Nombre completo"
+                                    required>
+                            </div>
+                            <div class="col-6 col-12-xsmall">
+                                <label for="email" class="col-label">Correo Electronico</label>
+                                <input type="email" name="email" id="email" value="" placeholder="Correo electronico"
+                                    required>
+                            </div>
+                            <div class="col-6 col-12-xsmall">
+                                <label for="address" class="col-label">Dirección</label>
+                                <input type="text" name="address" id="address" value="" placeholder="Dirección">
+                            </div>
+                            <div class="col-6 col-12-xsmall">
+                                <label for="phone" class="col-label">Teléfono</label>
+                                <input type="text" name="phone" id="phone" value="" placeholder="Teléfono">
+                            </div>
+                            <div class="col-6 col-12-xsmall">
+                                <label for="total" class="col-label">Orden</label>
+                                <a class="button fit" href="#menu">Ver Detalle de compra</a>
+                            </div>
+
+                            <div class="col-6 col-12-xsmall">
+                                <input style="display: none;" type="text" name="price" id="price" value="0.01" disabled>
+                                <input style="display: none;" type="text" name="detail" id="detail" value="0.01" disabled>
+                            </div>
+                            <hr>
+
+                        </div>
+                        <button type="submit" class="button fit" id="btnsave" onclick="datos()">Enviar Datos</button>
+                        <script>
+                            //alert 
+                            function datos() {
+                                if (document.getElementById("email").value != '') {
+                                    swal({
+                                    title: "AMComics++",
+                                    text: "Datos registrados correctamente!",
+                                    button: "Aceptar",
+                                });
+
+                                //hide button 
+                                $("#btnsave").hide(4000);
+                                    
+                                }
+
+                                const info = document.querySelector(' .simpleCart_items').textContent;
+                                document.getElementById('detail').value = info;
+
+                            }
+                        </script>
+
+                        <div class="yappy-button hidden">
+                            <a id="yappy-anchor" onclick="sendEmail()" href="#">
+                                <span>Pagar con</span>
+                                <span>yappy</span>
+                            </a>
+                        </div>
+                        <script>
+                            
+                            //document.getElementById("buy").reset();
+                        </script>
+
+                    </form>
+                </section>
+
+            </article>
+
+        </div>
+
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+
+        <script src="/routes/compra.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            (() => {
+                const App = {
+                    htmlElements: {
+                        form: document.getElementById("buy"),
+                        yappyButton: document.querySelector('.yappy-button'),
+                        yappyAnchor: document.getElementById("yappy-anchor"),
+                    },
+                    init() {
+                        App.htmlElements.form.addEventListener('submit', App.handlers.onFormSubmit);
+                    },
+                    handlers: {
+                        async onFormSubmit(e) {
+                            e.preventDefault();
+                            const name = e.target.elements.name.value;
+                            const email = e.target.elements.email.value;
+                            const address = e.target.elements.address.value;
+                            const phone = e.target.elements.phone.value;
+                            const priceYappy = parseFloat(e.target.elements.price.value);
+                            const detail = e.target.elements.detail.value;
+                            
+                            const { data: { url } } = await axios.post(
+                                'http://localhost:3000/buy/pagosbg',
+                                { name, email, address, phone, priceYappy, detail }
+                            );
+                            App.htmlElements.yappyButton.classList.value = 'yappy-button flex',
+                                App.htmlElements.yappyAnchor.href = url;
+                            App.htmlElements.yappyAnchor.target = "_blank";
+                        }
+                    }
+                };
+                App.init();
+            })();
+        </script>
+
+</body>
+
+</html>

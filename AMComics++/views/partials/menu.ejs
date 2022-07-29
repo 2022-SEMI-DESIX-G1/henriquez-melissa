@@ -1,0 +1,45 @@
+<h1><a href="/">Home</a></h1>
+<nav class="links">
+    <ul>
+        <!--<li>Others link in navbar</li>-->
+    </ul>
+</nav>
+<nav class="main">
+    <ul>
+        <li class="search">
+            <a class="fa-search" href="#search">Search</a>
+            <div>
+                <input type="search" style="margin-right: 5em; width: 100%;"  placeholder="Buscar comics disponibles" autocomplete="off"> 
+            </div>
+        </li>
+        <li class="menu">
+            <a class="fa-shopping-cart" aria-hidden="true" href="#menu">menu</a>
+        </li>
+    </ul>
+</nav>
+
+<section id="menu">
+
+    <!-- Shopping cart -->
+    <section>
+        <article class="post">
+            <h3 class="align-center">Carrito de compra</h3>
+
+            <p name="detail" class="simpleCart_items"></p>
+
+            <h3>Total a pagar: <span class="simpleCart_total"></span></h3>
+            
+            <a href="/buy" class="button fit item_add">Proceder a Comprar</a>
+            <a href="/"><button onclick="clearCart()" class="simpleCart_button fit">Vaciar carrito</button></a>
+            <script>
+                function clearCart() {
+                    localStorage.clear();
+                }
+
+            </script>
+
+        </article>
+
+    </section>
+
+</section>

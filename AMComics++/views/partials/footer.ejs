@@ -1,0 +1,46 @@
+<!-- Footer -->
+<section id="footer">
+    <p class="copyright">&copy; Untitled. Design: 2022</p>
+</section>
+
+</section>
+
+</div>
+
+<!-- Scripts -->
+<script src="js/jquery.min.js"></script>
+<script src="js/browser.min.js"></script>
+<script src="js/breakpoints.min.js"></script>
+<script src="js/util.js"></script>
+<script src="js/main.js"></script>
+<script src="js/simpleCart.js"></script>
+<script src="js/search.js"></script>
+<script src="js/email.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-search@2.0.0/dist/umd/js-search.min.js"
+    integrity="sha256-LD9UsSATk+xTzAbk8nD2gA2bjHKvetXtCMDAFkM2K5Q=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+
+<script>
+    simpleCart({
+        checkout: {
+            type: "PayPal",
+            email: "you@yours.com"
+        }
+    });	
+</script>
+
+<!-- Alerts -->
+<script>
+
+    function cart() {
+        swal("Comic agregado!", "Para proceder con la compra ingrese al carrito", "success");
+    }
+</script>
+
+<script>
+
+    function info() {
+        swal("Debe añadir el comic al carrito!");
+    }
+</script>
